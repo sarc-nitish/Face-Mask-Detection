@@ -6,7 +6,7 @@ import numpy as np
 import cv2
 
 st.set_page_config(page_title="Face Mask Detector", layout="centered")
-st.title("😷 Face Mask Detection App (Softmax Based)")
+st.title("😷 Face Mask Detection App ")
 st.markdown("Upload an image by **drag & drop** or click to browse.")
 
 # Load model
@@ -36,7 +36,7 @@ if uploaded_file is not None:
     # Load and display image
     image = Image.open(uploaded_file).convert("RGB")
     image_np = np.array(image)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(image, caption="Uploaded Image", use_container_width=True)  # ✅ updated here
 
     # Predict
     label, confidence = predict_mask(image_np)
